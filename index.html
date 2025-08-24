@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>K‑Means Clustering — Interactive Demo</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <h1>K‑Means Clustering</h1>
+      <p class="subtitle">Interactive visualization of the K‑Means algorithm with step controls</p>
+    </header>
+
+    <main class="main">
+      <section class="canvas-area">
+        <canvas id="plot" width="720" height="520"></canvas>
+        <div class="controls-inline">
+          <label>Clusters (k)
+            <input id="kInput" type="number" min="1" max="10" value="3">
+          </label>
+          <label>Points
+            <input id="nInput" type="number" min="10" max="200" value="80">
+          </label>
+          <button id="genBtn" class="btn primary">Generate</button>
+          <button id="initBtn" class="btn">Init Centroids</button>
+          <button id="stepBtn" class="btn">Step</button>
+          <button id="runBtn" class="btn">Run</button>
+          <button id="resetBtn" class="btn danger">Reset</button>
+        </div>
+      </section>
+
+      <aside class="sidebar">
+        <div class="card">
+          <h3>Iteration</h3>
+          <div class="value" id="iteration">0</div>
+        </div>
+
+        <div class="card">
+          <h3>Inertia (sum sq. dist)</h3>
+          <div class="value" id="inertia">—</div>
+        </div>
+
+        <div class="card">
+          <h3>Step / Explanation</h3>
+          <div id="explain">Click <strong>Generate</strong>, then <strong>Init Centroids</strong>, then use <strong>Step</strong> to walk the algorithm.</div>
+        </div>
+
+        <div class="card legend">
+          <h3>Legend</h3>
+          <div id="legendBoxes"></div>
+        </div>
+
+        <div class="card small">
+          <h3>Tips</h3>
+          <ul>
+            <li>Use <strong>Step</strong> to see assign → update phases.</li>
+            <li><strong>Run</strong> animates iterations until convergence.</li>
+            <li>Adjust k and points, then regenerate.</li>
+          </ul>
+        </div>
+      </aside>
+    </main>
+
+    <footer class="footer">
+      <small>Simple demo — not for production. Colors chosen for clarity.</small>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
